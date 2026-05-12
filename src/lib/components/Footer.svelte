@@ -1,0 +1,1 @@
+<footer><p>We ❤️ Code – Programmiersprachen 2</p></footer>

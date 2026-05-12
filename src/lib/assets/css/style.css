@@ -1,0 +1,191 @@
+/* Wird CSS mit einem Stern selektriert, wird der Style auf alle HTML-Elemente angewendet */
+* {
+  /* box-sizing: border-box
+    
+    tatsächliche Größe inklusive Ränder,etc 
+    "Wenn Sie die Breite eines Elements auf 100 Pixel festlegen, werden diese 100 Pixel alle von Ihnen hinzugefügten Ränder oder Füllungen enthalten, und das Inhaltsfeld wird verkleinert, um diese zusätzliche Breite zu absorbieren. Dadurch wird die Größenanpassung von Elementen normalerweise viel einfacher." 
+    *** Link: https://developer.mozilla.org/de/docs/Web/CSS/box-sizing ***
+    */
+  box-sizing: border-box;
+
+  /* Ich setze gerne für alle Elemente padding und margin auf 0, weil ich Abstände selbst definieren will.
+    - Margin: Wird zum Positionieren von Elemente genutzt und ist der Abstand nach außen.
+        - Styles wie eine Hintergrundfarbe wird hier nicht angewendet, weil der Abstand außerhalb vom Element liegt.
+    - Padding: Das ist der Abstand innerhalb vom Element, der Zwischenraum vom Inhalt und der Elementgrenze.
+        - Damit kann man z. B. einen Button vergrößern, die Hintergrundfarbe wird auch im Padding verwendet.
+
+    *** Link: https://www.mediaevent.de/css/margin.html ***
+    */
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  /* Basis-Schriftgröße für die Seite, damit rem funktioniert */
+  font-size: 16px;
+}
+
+/* HTML-Tags können direkt per Name selektiert werden: body, div, p, etc. */
+body {
+  background-color: rgb(39, 39, 39);
+  color: white;
+  font-family: "Inter Variable", sans-serif;
+  background-color: #1a1a1a;
+  color: white;
+}
+
+
+/******************/
+/* Header-Bereich */
+/******************/
+
+header {
+  display: flex;
+  height: 60px;
+  align-items: center;
+  background: #fff;
+  color: #000;
+
+  font-weight: 500;
+  letter-spacing: -0.01rem;
+  padding-left: 20px;
+}
+
+h1 {
+  font-size: 1.5rem;
+}
+
+h1 .title {
+  font-weight: 400;
+  color: #555;
+}
+
+
+/******************/
+/* Haupt-Bereich */
+/******************/
+
+/* 
+ * Hauptbereich mit Flexbox Layout:
+ * - display: flex aktiviert das Flexbox Layout-System
+ * - width: 100vw nutzt die volle Bildschirmbreite (viewport width)
+ * - flex-direction: row ordnet Kinder-Elemente horizontal an
+ */
+main {
+  display: flex;
+  width: 100vw;
+  flex-direction: row;
+}
+
+/******************/
+/* Sidebar Controls */
+/******************/
+
+
+.sidebar-right {
+	display: flex;
+	width: 350px;
+	flex-direction: column;
+	background: #1c1c1c;
+	border-left: 1px solid #353535;
+	padding: 20px;
+	padding-top: 30px;
+	color: #ddd;
+	letter-spacing: 0.02rem;
+}
+
+.sidebar-right label {
+  margin-bottom: 0.5rem;
+}
+
+
+/******************/
+/* Sidebar */
+/******************/
+
+nav.sidebar-left {
+  min-width: 350px;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  background: #444;
+  border-right: 1px solid #353535;
+  padding: 20px;
+  padding-top: 30px;
+  color: #fff;
+}
+
+h2 {
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+}
+
+main nav.sidebar-left ul {
+  /* display: flex;
+  flex-direction: column; */
+
+  list-style-type: none;
+  
+  /* gap: 10px; */
+}
+
+main nav.sidebar-left ul li {
+  padding: 5px 0;
+}
+
+
+/******************/
+/* Pattern-Bereich */
+/******************/
+
+/* 
+ * Pattern Container Layout:
+ * - flex-grow: 1 lässt den Container den verfügbaren Platz einnehmen
+ * - justify-content & align-items: center zentrieren den Inhalt horizontal und vertikal
+ * - height: calc() berechnet dynamisch die Höhe (Viewport-Höhe minus Header/Footer)
+ * - position: relative für absolute Positionierung der Kinder-Elemente
+ */
+.svg-container {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  position: relative;
+  max-width: calc(100vw - 120px);
+  height: calc(100vh - 120px);
+}
+
+/* 
+ * Pattern Element:
+ * - height: 100% füllt die verfügbare Höhe des Containers
+ * - Wenn, VIEWBOX 0 0 1000 1000, dann wird Breite gleich die Höhe, und Breite ist 100% vom Parent
+ * - DIV BRAUCHT ASPECT-RATIO
+ *    aspect-ratio: 1/1 erzwingt ein quadratisches Format
+ */
+.svg-canvas {
+  max-width: 100%;
+  max-height: 100%;
+  /* aspect-ratio: 1 / 1; */
+  background-color: #2a2a2a;
+}
+
+/******************/
+/* Footer-Bereich */
+/******************/
+
+/* 
+ * Footer Layout:
+ * - Feste Höhe von 60px
+ * - Flexbox für zentrierte Ausrichtung des Inhalts
+ * - justify-content & align-items: center zentrieren horizontal und vertikal
+ */
+footer {
+  height: 60px;
+  background-color: #1a1a1a;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid #353535;
+}
