@@ -9,6 +9,8 @@ import Pattern from '$lib/components/Pattern4.svelte';
 <div class="app-container">
 <Header />
 
+test
+
 	<main class="app-main">
 		<HeaderNavi />
 		<Pattern />
