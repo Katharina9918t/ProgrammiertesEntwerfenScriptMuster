@@ -9,7 +9,7 @@
 </script>
 
 <div class="app-container">
-	<Header />asdsad
+	<Header />
 
 	<main class="app-main">
 		<HeaderNavi selected={selectedPattern} onSelect={(p) => (selectedPattern = p)} />
